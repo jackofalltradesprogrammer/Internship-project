@@ -10,36 +10,36 @@
     <script src="jquery-ui.js"></script>
     <script type="text/javascript">
       $(function() {
-        $('#datepicker').datepicker({
-					inline: true,
-          showOtherMonths: true,
-					dayNamesMin: ['', '', '', '', '', '', ''],
-					onSelect: () => {
-							$('#din').val(this.value);
-					}
-				});
+        $('.inputcalendar').mouseover(function() {
+          $('#datepicker').datepicker({
+            inline: true,
+            showOtherMonths: true,
+            dayNamesMin: ['', '', '', '', '', '', ''],
+            onSelect: function() {
+              $('#din').val(this.value);
+            }
+          });
+          $(this)
+            .find('#datepicker')
+            .stop()
+            .fadeTo('slow', 1);
+          
+        });
 
-				$('#datepicker').hide();
-				
-				$('.dateinput').mouseover(function(){
-					$(this).find('#datepicker').stop().fadeTo('slow', 1);
-					// $('#datepicker').fadeIn("slow");
-				});
+        $('#datepicker').mouseleave(function() {
+          $('#datepicker').datepicker('destroy');
+        });
 
-				$('.dateinput').mouseout(function(){
-					$(this).find('#datepicker').stop().fadeTo('slow', 0);
-				});
-				
-				$('#datepicker').change(function(){
-					$('input.din').val(" $('#datepicker').val()");
-				});
+        $('#datepicker').change(function() {
+          $('input.din').val(" $('#datepicker').val()");
+        });
       });
     </script>
   </head>
   <body>
-    <div class="dateinput" id="dateinput">
-      <input type="text" name="din" id="din" />
-			<div id="datepicker"></div> 
+    <div class="inputcalendar">
+      <input type="text" class="din" name="din" id="din" />
+      <div id="datepicker"></div>
     </div>
     <!-- Datepicker -->
   </body>
