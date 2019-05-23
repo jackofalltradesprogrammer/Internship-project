@@ -1,8 +1,5 @@
 /* hide previous and next month days  */
 .ui-datepicker-other-month {
-  /* visibility: hidden; */
-  /* text-indent: -99999px; */
-  /* color: transparent; */
   font-size: 0;
 }
 
@@ -12,61 +9,77 @@
   display: none;
 }
 
-
-
-/* .hasDatepicker {} the class that contains date picker */
-
-.ui-datepicker, .inputcalendar{
+/* Sets the size for the calendar and input */
+.ui-datepicker,
+.inputcalendar {
   height: auto;
+  font: 10px Helvetica black;
   margin: 0 auto 0;
   width: 350px;
-  font: 10px Helvetica black;
 }
 
+/* Input was too close to the top of the browser */
+.inputcalendar {
+  margin-top: 10px;
+}
+
+/* Styling as per the requirements
+Use of box-sizing as i'm using 100%, it makes padding and border exclusive */
 .inputcalendar input {
-  margin: 0 auto 0;
-  width: 100%;
-  padding: 0;
   border: 1px solid #cccccc;
+  box-sizing: border-box;
+  font: 10px Helvetica black;
+  margin: 0 auto 0;
+  padding: 5px;
+  text-align: center;
+  width: 100%;
 }
 
 /* Remove the styling from the input */
 .inputcalendar input:focus {
-
   outline: none;
 }
 .ui-datepicker table {
   width: 100%;
 }
 
+/* Styling header as per the requiremnets */
 .ui-datepicker-header {
   background-color: #eaeaea;
-  line-height: 23px;
-  border-width: 1px 1px 0 1px;
+  border-width: 0 1px;
   border-style: solid;
   border-color: #cccccc;
+  font: 10px Helvetica black;
+  padding: 5px;
 }
+
 /* remove the padding between header and calendar */
-.ui-datepicker thead tr th{
+.ui-datepicker thead tr th {
   padding: 0;
 }
 
+/* putting the date in the center  */
 .ui-datepicker-title {
   text-align: center;
-  padding: 0px 1px;
+
+  padding: 0;
   width: 100%;
-  
 }
 
+/* Removing all the default styles for anchor tags and setting color to black */
 .ui-datepicker a {
-  text-decoration: none;
   color: black;
+  text-decoration: none;
 }
 
+/* Styling the date containers as requested */
 .ui-datepicker tbody td {
-  height: 50px;
+  box-sizing: border-box;
   border: 1px solid #cccccc;
-  padding: 0px;
+  font: 10px Helvetica black;
+  height: 50px;
+  padding-top: 3px;
+  padding-left: 2px;
   text-align: left;
   vertical-align: top;
 }

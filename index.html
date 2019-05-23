@@ -2,18 +2,29 @@
 <html lang="us">
   <head>
     <meta charset="utf-8" />
-    <title>jQuery UI Example Page</title>
+    <title>DojoMojo Date Picker</title>
     <link href="css/normalize.css" rel="stylesheet" />
     <link href="css/datepicker.css" rel="stylesheet" />
 
     <script src="external/jquery/jquery.js"></script>
-    <script src="jquery-ui.js"></script>
+    <script src="external/jquery-ui.min.js"></script>
     <script type="text/javascript">
+      /* 1. With mouseover event, I'm creating the date picker
+       2. Setup the date format as per the requirement
+       3.  Using dayNamesMin as blanks for replacement for Sun, mon...... as per the requiremnt 
+            && there was no class applied on the dataPicker for this row. So I ended up suing blanks
+       4. OnSelect Funtion to update the values on the Input filed
+       5. Using jquery functions to show the calendar
+       6. When mouse leaves the calendar or input, the datepicker is destroyed (disappears)
+       */
+
       $(function() {
         $('.inputcalendar').mouseover(function() {
           $('#datepicker').datepicker({
+            // altFormat: "M dd, YYYY",
+            dateFormat: 'M dd, yy',
             inline: true,
-            showOtherMonths: true,
+            // showOtherMonths: true,
             dayNamesMin: ['', '', '', '', '', '', ''],
             onSelect: function() {
               $('#din').val(this.value);
@@ -23,24 +34,18 @@
             .find('#datepicker')
             .stop()
             .fadeTo('slow', 1);
-          
         });
 
         $('#datepicker').mouseleave(function() {
           $('#datepicker').datepicker('destroy');
-        });
-
-        $('#datepicker').change(function() {
-          $('input.din').val(" $('#datepicker').val()");
         });
       });
     </script>
   </head>
   <body>
     <div class="inputcalendar">
-      <input type="text" class="din" name="din" id="din" />
+      <input type="text" id="din" />
       <div id="datepicker"></div>
     </div>
-    <!-- Datepicker -->
   </body>
 </html>
